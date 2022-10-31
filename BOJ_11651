@@ -1,0 +1,31 @@
+//BOJ_11651_좌표 정렬하기2 
+//c++
+//잔디정원사 1일차
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool compare(pair<int,int> x, pair<int,int> y){
+  if(x.second == y.second){
+    return x.first < y.first;
+  }
+  else return x.second < y.second;
+}
+
+int main() {
+  int N, i, x, y;
+  cin >> N;
+  vector<pair<int,int>> v(N);
+  for(i = 0; i < N; i++){
+    cin >> x >> y;
+    v[i].first = x;
+    v[i].second = y;
+  }
+  sort(v.begin(), v.end(), compare);
+  for(i = 0; i < N; i++){
+    cout << v[i].first << ' ' << v[i].second << '\n';
+  }
+  return 0;
+}
